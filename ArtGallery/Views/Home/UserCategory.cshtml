@@ -1,0 +1,14 @@
+﻿@model IEnumerable<ArtGallery.Models.Views.UsercategoryView>
+
+@{
+    ViewBag.Title = "UserCategory";
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
+}
+
+<h2>UserCategory</h2>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-4 col-md-12" value="@item.IDUC"  onclick="location.href='@Url.Action("UserArtCategory","Home",new {iduc=item.IDUC })'"><div style="height:auto;border:1px solid dodgerblue;border-radius:10px;background-color:transparent;text-align:center" value="@item.IDUC">@item.NameUC.ToUpper()</div></div>
+    }
+</div>

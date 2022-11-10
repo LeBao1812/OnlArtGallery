@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e542e6225d7b44e481e9bb85aac28d39" Name="Diagram1" ZoomLevel="92">
+        <EntityTypeShape EntityType="ArtGalleryModel.Art" Width="1.5" PointX="7.5" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArtGalleryModel.Artstatu" Width="1.5" PointX="5.25" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArtGalleryModel.Arttype" Width="1.5" PointX="5.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArtGalleryModel.Auctionhistory" Width="1.5" PointX="9.75" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArtGalleryModel.Cart" Width="1.5" PointX="12.75" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArtGalleryModel.Category" Width="1.5" PointX="5.25" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArtGalleryModel.LikeList" Width="1.5" PointX="9.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArtGalleryModel.MessageList" Width="1.5" PointX="9.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArtGalleryModel.Messagetype" Width="1.5" PointX="7.5" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArtGalleryModel.Transdetail" Width="1.5" PointX="9.75" PointY="27.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArtGalleryModel.Transhistory" Width="1.5" PointX="5.25" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArtGalleryModel.Usercategory" Width="1.5" PointX="5.25" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArtGalleryModel.User" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArtGalleryModel.Usertype" Width="1.5" PointX="0.75" PointY="11.375" IsExpanded="true" />
+        <AssociationConnector Association="ArtGalleryModel.FK_Art_Artstatus" ManuallyRouted="false" />
+        <AssociationConnector Association="ArtGalleryModel.FK_Art_Arttype" ManuallyRouted="false" />
+        <AssociationConnector Association="ArtGalleryModel.FK_Art_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="ArtGalleryModel.FK_Art_Usercategory" ManuallyRouted="false" />
+        <AssociationConnector Association="ArtGalleryModel.FK_Art_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="ArtGalleryModel.FK_Auctionhistory_Art" ManuallyRouted="false" />
+        <AssociationConnector Association="ArtGalleryModel.FK_Cart_Art" ManuallyRouted="false" />
+        <AssociationConnector Association="ArtGalleryModel.FK_LikeList_Art" ManuallyRouted="false" />
+        <AssociationConnector Association="ArtGalleryModel.FK_MessageList_Art" ManuallyRouted="false" />
+        <AssociationConnector Association="ArtGalleryModel.FK_Transdetail_Art" ManuallyRouted="false" />
+        <AssociationConnector Association="ArtGalleryModel.FK_Auctionhistory_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="ArtGalleryModel.FK_Auctionhistory_Users1" ManuallyRouted="false" />
+        <AssociationConnector Association="ArtGalleryModel.FK_Cart_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="ArtGalleryModel.FK_LikeList_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="ArtGalleryModel.FK_MessageList_Messagetype" ManuallyRouted="false" />
+        <AssociationConnector Association="ArtGalleryModel.FK_MessageList_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="ArtGalleryModel.FK_MessageList_Users1" ManuallyRouted="false" />
+        <AssociationConnector Association="ArtGalleryModel.FK_Transhistory_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="ArtGalleryModel.FK_Usercategory_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="ArtGalleryModel.FK_Users_Usertype" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,376 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ArtGalleryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Art">
+    <Key>
+      <PropertyRef Name="IDA" />
+    </Key>
+    <Property Name="IDA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="WidthA" Type="Int32" Nullable="false" />
+    <Property Name="HeightA" Type="Int32" Nullable="false" />
+    <Property Name="DepthA" Type="Int32" Nullable="false" />
+    <Property Name="MaterialA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DaycreateA" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DescriptionA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PriceA" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="IDAT" Type="Int32" Nullable="false" />
+    <Property Name="IDAS" Type="Int32" Nullable="false" />
+    <Property Name="IDU" Type="Int32" Nullable="false" />
+    <Property Name="IDC" Type="Int32" Nullable="false" />
+    <Property Name="IDUC" Type="Int32" Nullable="false" />
+    <Property Name="StatusA" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Artstatu" Relationship="Self.FK_Art_Artstatus" FromRole="Art" ToRole="Artstatus" />
+    <NavigationProperty Name="Arttype" Relationship="Self.FK_Art_Arttype" FromRole="Art" ToRole="Arttype" />
+    <NavigationProperty Name="Category" Relationship="Self.FK_Art_Category" FromRole="Art" ToRole="Category" />
+    <NavigationProperty Name="Usercategory" Relationship="Self.FK_Art_Usercategory" FromRole="Art" ToRole="Usercategory" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Art_Users" FromRole="Art" ToRole="Users" />
+    <NavigationProperty Name="Carts" Relationship="Self.FK_Cart_Art" FromRole="Art" ToRole="Cart" />
+    <NavigationProperty Name="Transdetails" Relationship="Self.FK_Transdetail_Art" FromRole="Art" ToRole="Transdetail" />
+  </EntityType>
+  <EntityType Name="Artstatu">
+    <Key>
+      <PropertyRef Name="IDAS" />
+    </Key>
+    <Property Name="IDAS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameAS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Arts" Relationship="Self.FK_Art_Artstatus" FromRole="Artstatus" ToRole="Art" />
+  </EntityType>
+  <EntityType Name="Arttype">
+    <Key>
+      <PropertyRef Name="IDAT" />
+    </Key>
+    <Property Name="IDAT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameAT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="StatusA" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Arts" Relationship="Self.FK_Art_Arttype" FromRole="Arttype" ToRole="Art" />
+  </EntityType>
+  <EntityType Name="Cart">
+    <Key>
+      <PropertyRef Name="IDCA" />
+    </Key>
+    <Property Name="IDCA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDU" Type="Int32" Nullable="false" />
+    <Property Name="IDA" Type="Int32" Nullable="false" />
+    <Property Name="StatusCA" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Art" Relationship="Self.FK_Cart_Art" FromRole="Cart" ToRole="Art" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Cart_Users" FromRole="Cart" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="IDC" />
+    </Key>
+    <Property Name="IDC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="StatusC" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Arts" Relationship="Self.FK_Art_Category" FromRole="Category" ToRole="Art" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Transdetail">
+    <Key>
+      <PropertyRef Name="IDTD" />
+    </Key>
+    <Property Name="IDTD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDA" Type="Int32" Nullable="false" />
+    <Property Name="IDTH" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Art" Relationship="Self.FK_Transdetail_Art" FromRole="Transdetail" ToRole="Art" />
+    <NavigationProperty Name="Transhistory" Relationship="Self.FK_Transdetail_Transhistory" FromRole="Transdetail" ToRole="Transhistory" />
+  </EntityType>
+  <EntityType Name="Transhistory">
+    <Key>
+      <PropertyRef Name="IDTH" />
+    </Key>
+    <Property Name="IDTH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DaycreateTH" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IDTS" Type="Int32" Nullable="false" />
+    <Property Name="IDU" Type="Int32" Nullable="false" />
+    <Property Name="Total" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="Transdetails" Relationship="Self.FK_Transdetail_Transhistory" FromRole="Transhistory" ToRole="Transdetail" />
+    <NavigationProperty Name="Transstatu" Relationship="Self.FK_Transhistory_Transstatus" FromRole="Transhistory" ToRole="Transstatus" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Transhistory_Users" FromRole="Transhistory" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Transstatu">
+    <Key>
+      <PropertyRef Name="IDTS" />
+    </Key>
+    <Property Name="IDTS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameTS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Transhistories" Relationship="Self.FK_Transhistory_Transstatus" FromRole="Transstatus" ToRole="Transhistory" />
+  </EntityType>
+  <EntityType Name="Usercategory">
+    <Key>
+      <PropertyRef Name="IDUC" />
+    </Key>
+    <Property Name="IDUC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameUC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DaycreateUC" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PriceUC" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="StatusUC" Type="Boolean" Nullable="false" />
+    <Property Name="IDU" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Arts" Relationship="Self.FK_Art_Usercategory" FromRole="Usercategory" ToRole="Art" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Usercategory_Users" FromRole="Usercategory" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="IDU" />
+    </Key>
+    <Property Name="IDU" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstnameU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastnameU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AddressU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PhoneU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmailU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DofbU" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="SexU" Type="Boolean" Nullable="false" />
+    <Property Name="UsernameU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PasswordU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DaycreateU" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IDUT" Type="Int32" Nullable="false" />
+    <Property Name="StatusU" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Arts" Relationship="Self.FK_Art_Users" FromRole="Users" ToRole="Art" />
+    <NavigationProperty Name="Carts" Relationship="Self.FK_Cart_Users" FromRole="Users" ToRole="Cart" />
+    <NavigationProperty Name="Transhistories" Relationship="Self.FK_Transhistory_Users" FromRole="Users" ToRole="Transhistory" />
+    <NavigationProperty Name="Usercategories" Relationship="Self.FK_Usercategory_Users" FromRole="Users" ToRole="Usercategory" />
+    <NavigationProperty Name="Usertype" Relationship="Self.FK_Users_Usertype" FromRole="Users" ToRole="Usertype" />
+  </EntityType>
+  <EntityType Name="Usertype">
+    <Key>
+      <PropertyRef Name="IDUT" />
+    </Key>
+    <Property Name="IDUT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameUT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="StatusUT" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Users_Usertype" FromRole="Usertype" ToRole="Users" />
+  </EntityType>
+  <Association Name="FK_Art_Artstatus">
+    <End Role="Artstatus" Type="Self.Artstatu" Multiplicity="1" />
+    <End Role="Art" Type="Self.Art" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artstatus">
+        <PropertyRef Name="IDAS" />
+      </Principal>
+      <Dependent Role="Art">
+        <PropertyRef Name="IDAS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Art_Arttype">
+    <End Role="Arttype" Type="Self.Arttype" Multiplicity="1" />
+    <End Role="Art" Type="Self.Art" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Arttype">
+        <PropertyRef Name="IDAT" />
+      </Principal>
+      <Dependent Role="Art">
+        <PropertyRef Name="IDAT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Art_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="1" />
+    <End Role="Art" Type="Self.Art" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="IDC" />
+      </Principal>
+      <Dependent Role="Art">
+        <PropertyRef Name="IDC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Art_Usercategory">
+    <End Role="Usercategory" Type="Self.Usercategory" Multiplicity="1" />
+    <End Role="Art" Type="Self.Art" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usercategory">
+        <PropertyRef Name="IDUC" />
+      </Principal>
+      <Dependent Role="Art">
+        <PropertyRef Name="IDUC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Art_Users">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="Art" Type="Self.Art" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="IDU" />
+      </Principal>
+      <Dependent Role="Art">
+        <PropertyRef Name="IDU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cart_Art">
+    <End Role="Art" Type="Self.Art" Multiplicity="1" />
+    <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Art">
+        <PropertyRef Name="IDA" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="IDA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transdetail_Art">
+    <End Role="Art" Type="Self.Art" Multiplicity="1" />
+    <End Role="Transdetail" Type="Self.Transdetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Art">
+        <PropertyRef Name="IDA" />
+      </Principal>
+      <Dependent Role="Transdetail">
+        <PropertyRef Name="IDA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cart_Users">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="IDU" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="IDU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transdetail_Transhistory">
+    <End Role="Transhistory" Type="Self.Transhistory" Multiplicity="1" />
+    <End Role="Transdetail" Type="Self.Transdetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Transhistory">
+        <PropertyRef Name="IDTH" />
+      </Principal>
+      <Dependent Role="Transdetail">
+        <PropertyRef Name="IDTH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transhistory_Transstatus">
+    <End Role="Transstatus" Type="Self.Transstatu" Multiplicity="1" />
+    <End Role="Transhistory" Type="Self.Transhistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Transstatus">
+        <PropertyRef Name="IDTS" />
+      </Principal>
+      <Dependent Role="Transhistory">
+        <PropertyRef Name="IDTS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transhistory_Users">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="Transhistory" Type="Self.Transhistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="IDU" />
+      </Principal>
+      <Dependent Role="Transhistory">
+        <PropertyRef Name="IDU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usercategory_Users">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="Usercategory" Type="Self.Usercategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="IDU" />
+      </Principal>
+      <Dependent Role="Usercategory">
+        <PropertyRef Name="IDU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Usertype">
+    <End Role="Usertype" Type="Self.Usertype" Multiplicity="1" />
+    <End Role="Users" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usertype">
+        <PropertyRef Name="IDUT" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="IDUT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ArtGalleryEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Arts" EntityType="Self.Art" />
+    <EntitySet Name="Artstatus" EntityType="Self.Artstatu" />
+    <EntitySet Name="Arttypes" EntityType="Self.Arttype" />
+    <EntitySet Name="Carts" EntityType="Self.Cart" />
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Transdetails" EntityType="Self.Transdetail" />
+    <EntitySet Name="Transhistories" EntityType="Self.Transhistory" />
+    <EntitySet Name="Transstatus" EntityType="Self.Transstatu" />
+    <EntitySet Name="Usercategories" EntityType="Self.Usercategory" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="Usertypes" EntityType="Self.Usertype" />
+    <AssociationSet Name="FK_Art_Artstatus" Association="Self.FK_Art_Artstatus">
+      <End Role="Artstatus" EntitySet="Artstatus" />
+      <End Role="Art" EntitySet="Arts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Art_Arttype" Association="Self.FK_Art_Arttype">
+      <End Role="Arttype" EntitySet="Arttypes" />
+      <End Role="Art" EntitySet="Arts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Art_Category" Association="Self.FK_Art_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Art" EntitySet="Arts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Art_Usercategory" Association="Self.FK_Art_Usercategory">
+      <End Role="Usercategory" EntitySet="Usercategories" />
+      <End Role="Art" EntitySet="Arts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Art_Users" Association="Self.FK_Art_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Art" EntitySet="Arts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cart_Art" Association="Self.FK_Cart_Art">
+      <End Role="Art" EntitySet="Arts" />
+      <End Role="Cart" EntitySet="Carts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transdetail_Art" Association="Self.FK_Transdetail_Art">
+      <End Role="Art" EntitySet="Arts" />
+      <End Role="Transdetail" EntitySet="Transdetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cart_Users" Association="Self.FK_Cart_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Cart" EntitySet="Carts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transdetail_Transhistory" Association="Self.FK_Transdetail_Transhistory">
+      <End Role="Transhistory" EntitySet="Transhistories" />
+      <End Role="Transdetail" EntitySet="Transdetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transhistory_Transstatus" Association="Self.FK_Transhistory_Transstatus">
+      <End Role="Transstatus" EntitySet="Transstatus" />
+      <End Role="Transhistory" EntitySet="Transhistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transhistory_Users" Association="Self.FK_Transhistory_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Transhistory" EntitySet="Transhistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usercategory_Users" Association="Self.FK_Usercategory_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Usercategory" EntitySet="Usercategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Usertype" Association="Self.FK_Users_Usertype">
+      <End Role="Usertype" EntitySet="Usertypes" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

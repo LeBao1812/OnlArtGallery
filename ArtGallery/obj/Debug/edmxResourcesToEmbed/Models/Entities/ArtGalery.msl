@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ArtGalleryModelStoreContainer" CdmEntityContainer="ArtGalleryEntities">
+    <EntitySetMapping Name="Arts">
+      <EntityTypeMapping TypeName="ArtGalleryModel.Art">
+        <MappingFragment StoreEntitySet="Art">
+          <ScalarProperty Name="IDA" ColumnName="IDA" />
+          <ScalarProperty Name="NameA" ColumnName="NameA" />
+          <ScalarProperty Name="WidthA" ColumnName="WidthA" />
+          <ScalarProperty Name="HeightA" ColumnName="HeightA" />
+          <ScalarProperty Name="DepthA" ColumnName="DepthA" />
+          <ScalarProperty Name="MaterialA" ColumnName="MaterialA" />
+          <ScalarProperty Name="DaycreateA" ColumnName="DaycreateA" />
+          <ScalarProperty Name="DescriptionA" ColumnName="DescriptionA" />
+          <ScalarProperty Name="PriceA" ColumnName="PriceA" />
+          <ScalarProperty Name="IDAT" ColumnName="IDAT" />
+          <ScalarProperty Name="IDAS" ColumnName="IDAS" />
+          <ScalarProperty Name="IDU" ColumnName="IDU" />
+          <ScalarProperty Name="IDC" ColumnName="IDC" />
+          <ScalarProperty Name="IDUC" ColumnName="IDUC" />
+          <ScalarProperty Name="StatusA" ColumnName="StatusA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Artstatus">
+      <EntityTypeMapping TypeName="ArtGalleryModel.Artstatu">
+        <MappingFragment StoreEntitySet="Artstatus">
+          <ScalarProperty Name="IDAS" ColumnName="IDAS" />
+          <ScalarProperty Name="NameAS" ColumnName="NameAS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Arttypes">
+      <EntityTypeMapping TypeName="ArtGalleryModel.Arttype">
+        <MappingFragment StoreEntitySet="Arttype">
+          <ScalarProperty Name="IDAT" ColumnName="IDAT" />
+          <ScalarProperty Name="NameAT" ColumnName="NameAT" />
+          <ScalarProperty Name="StatusA" ColumnName="StatusA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Carts">
+      <EntityTypeMapping TypeName="ArtGalleryModel.Cart">
+        <MappingFragment StoreEntitySet="Cart">
+          <ScalarProperty Name="IDCA" ColumnName="IDCA" />
+          <ScalarProperty Name="IDU" ColumnName="IDU" />
+          <ScalarProperty Name="IDA" ColumnName="IDA" />
+          <ScalarProperty Name="StatusCA" ColumnName="StatusCA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="ArtGalleryModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="IDC" ColumnName="IDC" />
+          <ScalarProperty Name="NameC" ColumnName="NameC" />
+          <ScalarProperty Name="StatusC" ColumnName="StatusC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="ArtGalleryModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transdetails">
+      <EntityTypeMapping TypeName="ArtGalleryModel.Transdetail">
+        <MappingFragment StoreEntitySet="Transdetail">
+          <ScalarProperty Name="IDTD" ColumnName="IDTD" />
+          <ScalarProperty Name="IDA" ColumnName="IDA" />
+          <ScalarProperty Name="IDTH" ColumnName="IDTH" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transhistories">
+      <EntityTypeMapping TypeName="ArtGalleryModel.Transhistory">
+        <MappingFragment StoreEntitySet="Transhistory">
+          <ScalarProperty Name="IDTH" ColumnName="IDTH" />
+          <ScalarProperty Name="DaycreateTH" ColumnName="DaycreateTH" />
+          <ScalarProperty Name="IDTS" ColumnName="IDTS" />
+          <ScalarProperty Name="IDU" ColumnName="IDU" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transstatus">
+      <EntityTypeMapping TypeName="ArtGalleryModel.Transstatu">
+        <MappingFragment StoreEntitySet="Transstatus">
+          <ScalarProperty Name="IDTS" ColumnName="IDTS" />
+          <ScalarProperty Name="NameTS" ColumnName="NameTS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usercategories">
+      <EntityTypeMapping TypeName="ArtGalleryModel.Usercategory">
+        <MappingFragment StoreEntitySet="Usercategory">
+          <ScalarProperty Name="IDUC" ColumnName="IDUC" />
+          <ScalarProperty Name="NameUC" ColumnName="NameUC" />
+          <ScalarProperty Name="DaycreateUC" ColumnName="DaycreateUC" />
+          <ScalarProperty Name="PriceUC" ColumnName="PriceUC" />
+          <ScalarProperty Name="StatusUC" ColumnName="StatusUC" />
+          <ScalarProperty Name="IDU" ColumnName="IDU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="ArtGalleryModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="IDU" ColumnName="IDU" />
+          <ScalarProperty Name="FirstnameU" ColumnName="FirstnameU" />
+          <ScalarProperty Name="LastnameU" ColumnName="LastnameU" />
+          <ScalarProperty Name="AddressU" ColumnName="AddressU" />
+          <ScalarProperty Name="PhoneU" ColumnName="PhoneU" />
+          <ScalarProperty Name="EmailU" ColumnName="EmailU" />
+          <ScalarProperty Name="DofbU" ColumnName="DofbU" />
+          <ScalarProperty Name="SexU" ColumnName="SexU" />
+          <ScalarProperty Name="UsernameU" ColumnName="UsernameU" />
+          <ScalarProperty Name="PasswordU" ColumnName="PasswordU" />
+          <ScalarProperty Name="DaycreateU" ColumnName="DaycreateU" />
+          <ScalarProperty Name="IDUT" ColumnName="IDUT" />
+          <ScalarProperty Name="StatusU" ColumnName="StatusU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usertypes">
+      <EntityTypeMapping TypeName="ArtGalleryModel.Usertype">
+        <MappingFragment StoreEntitySet="Usertype">
+          <ScalarProperty Name="IDUT" ColumnName="IDUT" />
+          <ScalarProperty Name="NameUT" ColumnName="NameUT" />
+          <ScalarProperty Name="StatusUT" ColumnName="StatusUT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

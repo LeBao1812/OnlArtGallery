@@ -1,0 +1,131 @@
+﻿@model ArtGallery.Models.Views.AddArtView
+
+@{
+    ViewBag.Title = "AddNewArt";
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
+}
+
+<h2>AddNewArt</h2>
+
+@using (Html.BeginForm("AddNewArtDB", "Home",FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>ArtView</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.art.NameA,"Art name", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.art.NameA, new { htmlAttributes = new { @class = "form-control",@required="true" } })
+            @Html.ValidationMessageFor(model => model.art.NameA, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.art.WidthA,"Width", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.art.WidthA, new { htmlAttributes = new { @class = "form-control", @type = "number", @required = "true" } })
+            @Html.ValidationMessageFor(model => model.art.WidthA, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.art.HeightA,"Height", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.art.HeightA, new { htmlAttributes = new { @class = "form-control", @type = "number", @required = "true" } })
+            @Html.ValidationMessageFor(model => model.art.HeightA, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.art.DepthA,"Depth", htmlAttributes: new { @class = "control-label col-md-2", @type = "number", @required = "true" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.art.DepthA, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.art.DepthA, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.art.MaterialA,"Material", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.art.MaterialA, new { htmlAttributes = new { @class = "form-control", @required = "true" } })
+            @Html.ValidationMessageFor(model => model.art.MaterialA, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.art.DescriptionA,"Descriptions", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.art.DescriptionA, new { @cols="100%",@rows="3", @required = "true" })
+            @Html.ValidationMessageFor(model => model.art.DescriptionA, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.art.PriceA,"Price", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.art.PriceA, new { htmlAttributes = new { @class = "form-control",@type="number", @required = "true",@min="0",@max="2000000000" } })
+            @Html.ValidationMessageFor(model => model.art.PriceA, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.art.IDAT,"Art type", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10" style="margin-top:10px">
+            <div class="dropdown">
+                @Html.DropDownListFor(m => m.art.IDAT, new SelectList(Model.at, "IDAT", "NameAT"), "Select Art type",new { @required = "true" })
+                @Html.ValidationMessageFor(model => model.art.IDAT, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.art.IDAS,"Art status", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10" style="margin-top:10px">
+            <div class="dropdown">
+                @Html.DropDownListFor(m => m.art.IDAS, new SelectList(Model.ast, "IDAS", "NameAS"), "Select Art status",new { @required = "true" })
+                @Html.ValidationMessageFor(model => model.art.IDAS, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.art.IDC,"Category", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10" style="margin-top:10px">
+            <div class="dropdown">
+                @Html.DropDownListFor(m => m.art.IDC, new SelectList(Model.cate, "IDC", "NameC"), "Select Art category",new { @required = "true" })
+                @Html.ValidationMessageFor(model => model.art.IDC, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ImageFile,"Image", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.ImageFile, new { @type = "file", @name = "ImageFile", @required = "true" })
+            @Html.ValidationMessageFor(model => model.ImageFile, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <!--<div class="form-group">
+        Html.LabelFor(model => model.IDUC, htmlAttributes: new { class = "control-label col-md-2" })
+        <div class="col-md-10">
+            Html.EditorFor(model => model.IDUC, new { htmlAttributes = new { class = "form-control" } })
+            Html.ValidationMessageFor(model => model.IDUC, "", new { class = "text-danger" })
+        </div>
+    </div>-->
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" formaction="@Url.Action("AddNewArtDB","Home",FormMethod.Post)" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
